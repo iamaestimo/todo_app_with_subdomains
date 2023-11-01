@@ -1,0 +1,35 @@
+<section class="mt-6">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="flex justify-between mb-4">
+    <div><h1 class="text-2xl">Todos</h1></div>
+    <div>
+      <%= link_to 'New todo', new_todo_path, class: 'bg-green-500 p-4 rounded text-white' %>
+    </div>
+  </div>
+
+  <table class="w-full text-left text-gray-600">
+    <thead>
+      <tr class="border-b">
+        <th class="px-4 py-3">#</th>
+        <th class="px-4 py-3">Account</th>
+        <th class="px-4 py-3">Title</th>
+        <th class="px-4 py-3">Body</th>
+        <th class="px-4 py-3">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @todos.each do |todo| %>
+      <tr class="border-b">
+        <td class="px-4 py-3"><%= todo.id %></td>
+        <td class="px-4 py-3"><%= todo.account.subdomain %></td>
+        <td class="px-4 py-3"><%= todo.title %></td>
+        <td class="px-4 py-3"><%= todo.description.truncate(30) %></td>
+        <td class="px-4 py-3"><%= todo.complete %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</section>
+

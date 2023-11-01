@@ -1,0 +1,14 @@
+
+<nav class="bg-green-600">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+        <a href="/" class="flex items-center">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Todo App</span>
+        </a>
+        <div class="flex items-center space-x-2">
+            <% if user_signed_in? %>
+                <p class="text-white">Welcome, <span class="underline"><%= current_user.email %></span></p>
+                <%= link_to 'Logout', destroy_user_session_path, data: { turbo_method: :delete }, class: 'block py-2 pl-3 pr-4 bg-white text-green-900 rounded' %>
+            <% end %>
+        </div>
+    </div>
+</nav>
